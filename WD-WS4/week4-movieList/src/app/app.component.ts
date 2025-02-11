@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { AddMovieComponent } from "./add-movie/add-movie.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [AddMovieComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
