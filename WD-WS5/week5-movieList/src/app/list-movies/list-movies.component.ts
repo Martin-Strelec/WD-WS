@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovieService } from '../services/movie.service';
+import { Movie } from '../movie.model';
 
 @Component({
   selector: 'app-list-movies',
@@ -17,6 +18,14 @@ export class ListMoviesComponent {
   ngOnInit() {
     this.movies=this.movieService.getMovies();
     console.log(this.movies);
+  }
+
+  selectMovie(myMovie:Movie):void {
+    console.log(myMovie);
+  }
+
+  isSelected(movie:Movie):boolean {
+    return false;
   }
 
 }
