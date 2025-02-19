@@ -27,10 +27,15 @@ export class ListMoviesComponent {
 
   selectMovie(myMovie:Movie):void {
     console.log(myMovie);
+    this.currentMovie=myMovie;
+    this.onSelectedMovie.emit(myMovie);
   }
 
   isSelected(movie:Movie):boolean {
-    return false;
+    if (!movie || !this.currentMovie) {
+      return false;
+    }
+    return movie.title==this.currentMovie.title;
   }
 
 }
