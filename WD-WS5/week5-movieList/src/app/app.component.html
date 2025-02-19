@@ -1,6 +1,15 @@
-<h1 class="text-center p-3">Martin Strelec - S00256070</h1>
-<div class="container">
-  <h2 class="pb-3">Movie Favourites</h2>
+<div>
+  <h1>Movie Favourites Week 5 - S00256070</h1>
   <app-add-movie></app-add-movie>
-  <app-list-movies></app-list-movies>
+</div>
+
+<div class="container p-0">
+  <div class="row">
+    <div class="col-sm-6">
+      <app-list-movies (onSelectedMovie)="setSelectedMovie($event)"></app-list-movies>
+    </div>
+    <div class="col-sm-6">
+      <app-movie-detail [movieDetails]="mySelectedMovie"></app-movie-detail>
+    </div>
+  </div>
 </div>
