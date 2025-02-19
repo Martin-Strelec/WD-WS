@@ -14,7 +14,11 @@ export class ListMoviesComponent {
   movies:any[]=[];
   private currentMovie!: Movie;
 
-  constructor(private movieService:MovieService) {}
+  @Output() onSelectedMovie:EventEmitter<Movie>;
+
+  constructor(private movieService:MovieService) {
+    this.onSelectedMovie=new EventEmitter();
+  }
 
   ngOnInit() {
     this.movies=this.movieService.getMovies();
