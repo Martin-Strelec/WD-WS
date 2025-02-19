@@ -12,6 +12,7 @@ import { Movie } from '../movie.model';
 export class ListMoviesComponent {
 
   movies:any[]=[];
+  private currentMovie!: Movie;
 
   constructor(private movieService:MovieService) {}
 
