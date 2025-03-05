@@ -2,6 +2,7 @@
 
 # Archives
 *.zip
+*.pptx
 
 # Compiled output
 /dist
