@@ -27,7 +27,7 @@
               }
             ],
             "styles": [
-              "bootstrap/dist/css/boostrap.min.css",
+              "bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
 
             ],
