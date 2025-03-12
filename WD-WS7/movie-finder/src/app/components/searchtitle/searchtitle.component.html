@@ -1,0 +1,52 @@
+
+<div class="container mt-3">
+  <h1>Search for a movie: </h1>
+    <form>
+      <div class="form-group">
+        <input type="text" name="movie-name" class="form-control" #moviename placeholder="Enter movie Name">
+      </div>
+      <div class="form-group mt-2">
+        <button (click)="getMovieDetails(moviename.value)" type="submit" class="btn btn-primary">Get Movie
+          Details</button>
+      </div>
+    </form>
+  
+    <ng-container *ngIf="movieData">
+      <div class="row bg-light mt-4 p-4">
+      <ng-container *ngIf="movieData.Error; else displayData">
+        <div class="p-3">
+          <h3>{{ movieData.Error}}</h3>
+        </div>
+      </ng-container>
+
+      <ng-template #displayData>
+        <div class="col-sm-4">
+          <ng-container *ngIf="movieData.Poster && movieData.Poster !== 'N/A'"; else defaultPicture>
+            <img src="{{movieData.Poster}}">
+          </ng-container>
+        </div>
+
+        <ng-template #defaultPicture>
+          <div class="col-sm-4">
+            <img src="default.png">
+          </div>
+        </ng-template>
+
+        <div class="col-sm-8">
+          <h1>{{ movieData.Title }}</h1>
+          <h3>Director: {{ movieData.Director }}</h3>
+          <ng-container *ngIf="movieData.Ratings">
+            <div class="mt-5">
+            <h3>Ratings:</h3>
+            <ng-container *ngFor="let rating of movieData.Ratings">
+              <div class="bg-light">
+                <p>{{rating.Source}}: {{rating.Value}}</p>
+              </div>
+            </ng-container>
+          </div>  
+          </ng-container>
+        </div>  
+      </ng-template>
+      </div>      
+    </ng-container>
+  </div>
