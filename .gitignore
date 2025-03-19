@@ -106,3 +106,4 @@ baseline.json
 # Ignore cache created with the Angular CLI.
 .angular/
 WD-WS7/movie-finder/.firebase/hosting.ZGlzdFxtb3ZpZS1maW5kZXJcYnJvd3Nlcg.cache
+CA2/car-api-server/.env
