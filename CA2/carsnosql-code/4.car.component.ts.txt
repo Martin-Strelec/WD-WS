@@ -1,0 +1,6 @@
+  deleteCar(carId:string) { 
+    this._carAPIService.delCarDetails(carId).subscribe(result =>
+      { 
+        console.log(result);
+      });
+  }
