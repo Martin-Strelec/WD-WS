@@ -1,26 +1,38 @@
-<div class='container mt-3 mb-3'>
-    <button (click)="show = !show">{{show ? 'Hide' : 'Add a Car'}}</button>
-  
-    <div *ngIf="show">
-      <form>
-        <label>Make</label>
-        <input type="text" name="make" placeholder="Enter Make" #make>
-  
-        <label>Model</label>
-        <input type="text" name="model" placeholder="Enter Model" #model>
-  
-        <label>Year</label>
-        <input type="text" name="year" placeholder="Enter Year" #year>
-  
-        <label>Image</label>
-        <input type="text" name="imageURL" placeholder="Enter Link to Image" #imageUrl>
-  
-        <button class="btn btn-primary" type="submit" (click)="addCar(make.value, 
+<div class='container mt-3 mb-3 w-75'>
+  <button class="btn btn-primary" (click)="show = !show">{{show ? 'Hide' : 'Add a Car'}}</button>
+
+  <div *ngIf="show">
+    <form>
+      <div class="form-group">
+        <label for="inputMake">Make</label>
+        <input name="make" type="text" class="form-control" id="inputMake" aria-describedby="makeHelp"
+          placeholder="Enter Make" #make>
+        <small id="makeHelp" class="form-text text-muted">*The name of the manufacturer of the car</small>
+      </div>
+      <div class="form-group">
+        <label for="inputModel">Model</label>
+        <input name="model" type="text" class="form-control" id="inputModel" aria-describedby="modelHelp"
+          placeholder="Enter Model" #model>
+        <small id="modelHelp" class="form-text text-muted">*The name of the model of the car</small>
+      </div>
+      <div class="form-group">
+        <label for="inputMake">Year</label>
+        <input name="year" type="text" class="form-control" id="inputYear" aria-describedby="yearHelp"
+          placeholder="Enter Year" #year>
+        <small id="yearHelp" class="form-text text-muted">*The year when the car was made</small>
+      </div>
+      <div class="form-group">
+        <label for="inputMake">Image</label>
+        <input name="imageURL" type="text" class="form-control" id="inputImage" aria-describedby="imageHelp"
+          placeholder="Enter image URL" #imageUrl>
+        <small id="imageHelp" class="form-text text-muted">*Input the picture URL</small>
+      </div>
+      <button class="btn btn-primary mt-3" type="submit" (click)="addCar(make.value, 
                   model.value,year.value,imageUrl.value)">Add Car</button>
-      </form>
-    </div>
-   </div>
-  
-   <div class='container'>
-      <app-car *ngFor="let carData of carsData" [carData]="carData"></app-car>
-   </div>
+    </form>
+  </div>
+</div>
+<h1 class="text-center">Car List</h1>
+<div class='container p-3 rounded-3 w-75'>
+  <app-car *ngFor="let carData of carsData" [carData]="carData" (carDeletedEvent)="refreshCars()"></app-car>
+</div>
