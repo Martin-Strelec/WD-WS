@@ -39,16 +39,17 @@ export class CarApiService {
    }
 
 
-  delCarDetails(carId:string):Observable<any> {
-    let deleteURL=this._siteURL+":"+carId;
+   delCarDetails(carId:string):Observable<any> {
+    let deleteURL=this._siteURL+"/"+carId;
     return this._http.delete(deleteURL)
     .pipe(
       tap(data => console.log('del car message/error' + JSON.stringify(data))
     ),
     catchError(this.handleError)
     );
- 
+
   }
+
 
   private handleError (err:HttpErrorResponse) {
     console.log('CarApiService: ' + err.message);
