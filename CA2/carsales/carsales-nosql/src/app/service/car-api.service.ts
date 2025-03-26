@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, catchError, tap } from 'rxjs';
 import { ICar } from '../interfaces/car';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ServiceNameService {
@@ -15,7 +16,7 @@ export class ServiceNameService {
 })
 export class CarApiService {
 
-  private _siteURL = "http://localhost:5050/cars"
+  private _siteURL = environment.apiUrl;
   constructor(private _http: HttpClient) { }
 
   getCarDetails(): Observable<any> {
